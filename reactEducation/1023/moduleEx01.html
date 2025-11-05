@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>JavaScript Modules</h1>
+
+    <p id="demo"></p>
+
+    <script type="module">
+        import msg from "./message.js";
+        import { name } from "./message.js";
+
+        // document.getElementById("demo").innerHTML = message();
+        document.getElementById("demo").innerHTML = name + ": " + msg();
+
+    </script>
+
+</body>
+
+</html>

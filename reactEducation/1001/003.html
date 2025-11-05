@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>003</title>
+    <script>
+        function print(text) {
+            document.write(`<div>${text}</div>`);
+        }
+
+        // 사각형의 너비와 높이를 계산하여 넓이를 구하여 출력하는 함수
+        // 함수명 : rectArea
+        // 매개변수 2개
+        function rectArea(num1, num2) {
+            print(`너비가 ${num1}, 높이가 ${num2}인 사각형의 넓이는 ${num1 * num2}입니다.<br>`);
+        }
+
+        rectArea(10, 5);
+        rectArea(20, 10);
+        rectArea(30, 15);
+
+
+        // 3과목 (국어, 수학, 영어)의 총점과 평균을 구하여 출력하는 함수
+        // 함수명 : grade
+        // 매개변수 3개
+        function grade(kor, mat, eng) {
+            print(`제 국어 성적은 ${kor}점 이고, 수학 성적은 ${mat}점, 영어 성적은 ${eng}점 입니다.<br>총 점수는 ${kor + mat + eng}점 이고, 평균 점수는 ${(kor + mat + eng) / 3}점 입니다 <br>`);
+        }
+
+        grade(20, 30, 40);
+        grade(30, 40, 50);
+        grade(40, 50, 60);
+
+
+        function grade2(k, m, e) {
+            let total = k + m + e; // 총점
+            let avg = total / 3;
+            print(`총점 : ${total}, 평균 : ${avg}`);
+        }
+
+        grade2(80, 30, 40);
+        grade2(90, 40, 50);
+        grade2(100, 50, 60);
+
+
+        // input에 특정값을 입력해 계산하기 버튼을 눌러 출력하기
+        function calc() {
+            let num3 = document.getElementById("num3").value;
+            let num4 = document.getElementById("num4").value;
+            let res = Number(num3) * Number(num4);
+
+            document.getElementById("result").innerText = res;
+        }
+
+        // 아래의 코드를 작성하고 올바르게 실행 될 수 있게 함수를 만들어보세요
+        function hi(name) {
+            print(`안녕, ${name}!`);
+        }
+
+        hi("이순신"); // 화면 출력은 안녕, 이순신!
+        hi("김정원"); // 화면 출력은 안녕, 김정원!
+        hi("박승찬"); // 화면 출력은 안녕, 박승찬!
+
+
+        function start() {
+            document.write("가위 바위 보를 시작합니다.")
+            let user = parseInt(Math.random() * 3) + 1; //1. 가위 2. 바위 3. 보
+            let com = parseInt(Math.random() * 3) + 1;
+
+            // 유저와 컴퓨터가 각각 가위, 바위, 보 중 무엇을 내었는지 출력하는 함수 실행
+            check(user);
+            check(com);
+
+            // 결과를 확인 - 유저 기준에서 승, 패, 무 출력
+            result(user, com);
+        }
+
+        function result(u, c) {
+            let res = "패";
+            if (u === c) {
+                res = "비김";
+            } else if ((u === 1 && c === 3) || (u === 2 && c === 1) || (u === 3 && c === 2)) {
+                res = "승";
+            }
+            document.write(res);
+        }
+
+        function check(player) { // 가위바위보 문자열로 출력
+            let word = player === 1 ? "가위" : player === 2 ? "바위" : "보";
+            document.write(word);
+        }
+
+        start();
+    </script>
+</head>
+
+<body>
+    <div>
+        <input type="number" id="num3">
+        <input type="number" id="num4">
+        <button><a href="javascript:calc()">계산하기</a></button>
+        <div id="result"></div>
+    </div>
+</body>
+
+</html>

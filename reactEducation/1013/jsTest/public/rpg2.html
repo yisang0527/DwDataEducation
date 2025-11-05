@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>textRPG</title>
+    <style>
+        #stat {
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrap">
+        <div>
+            <button id="save">저장하기</button>
+            <button id="load">불러오기</button>
+            <button id="random">무작위</button>
+        </div>
+
+        <fieldset>
+            <legend>캐릭터 생성</legend>
+            <div class="input-field">
+                <label>이름</label>
+                <input type="text" id="name">
+            </div>
+
+            <div class="input-field">
+                <label>레벨</label>
+                <input type="text" id="job">
+            </div>
+
+            <div class="input-field">
+                <label>성별</label>
+                <input type="radio" name="gender" value="m">수컷
+                <input type="radio" name="gender" value="w">암컷
+            </div>
+
+            <div id="stat">
+
+            </div>
+        </fieldset>
+    </div>
+
+    <script>
+        const saveBtn = document.querySelector("#save");
+        saveBtn.onclick = () => {
+            let name = document.querySelector("#name").value;
+            let job = document.querySelector("#job").value;
+            let gender = document.querySelector("input[name='gender']:checked").value;
+
+            localStorage.setItem("name", name);
+            localStorage.setItem("job", job);
+            localStorage.setItem("gender", gender);
+            localStorage.setItem("str", statValue.strVal);
+            localStorage.setItem("dex", statValue.dexVal);
+            localStorage.setItem("agi", statValue.agiVal);
+            localStorage.setItem("con", statValue.conVal);
+            localStorage.setItem("int", statValue.intVal);
+            localStorage.setItem("rux", statValue.intVal);
+        };
+
+        const loadBtn = document.querySelector("#load");
+        loadBtn.onclick = () => {
+            let name = localStorage.getItem("name");
+            let job = localStorage.getItem("job");
+            let gender = localStorage.getItem("gender");
+
+            document.querySelector("#name").value = name;
+            document.querySelector("#job").value = job;
+            let radio = document.querySelector(`input[name="gender"][value="${gender}"]`);
+
+            radio.checked = true;
+        };
+
+        const stat = document.querySelector("#stat");
+
+        let randomBt = document.createElement("button");
+        randomBt.textContent = "무작위 스탯";
+        stat.appendChild(randomBt);
+
+        let str = document.createElement("div");
+        stat.appendChild(str);
+
+        let dex = document.createElement("div");
+        stat.appendChild(dex);
+
+        let agi = document.createElement("div");
+        stat.appendChild(agi);
+
+        let con = document.createElement("div");
+        stat.appendChild(con);
+
+        let int = document.createElement("div");
+        stat.appendChild(int);
+
+        let rux = document.createElement("div");
+        stat.appendChild(rux);
+
+        const statValue = {
+            strVal: 0,
+            dexVal: 0,
+            agiVal: 0,
+            conVal: 0,
+            intVal: 0,
+            ruxVal: 0,
+        };
+
+        randomBt.onclick = () => {
+            statValue.strVal = Math.floor(Math.random() * 10) + 5;
+
+            statValue.dexVal = Math.floor(Math.random() * 10) + 5;
+
+            statValue.agiVal = Math.floor(Math.random() * 10) + 5;
+
+            statValue.conVal = Math.floor(Math.random() * 10) + 5;
+
+            statValue.intVal = Math.floor(Math.random() * 10) + 5;
+
+            statValue.ruxVal = Math.floor(Math.random() * 10) + 5;
+
+            str.textContent = `체력 : ${statValue.strVal}`;
+            dex.textContent = `공격 : ${statValue.dexVal}`;
+            agi.textContent = `방어 : ${statValue.agiVal}`;
+            con.textContent = `특수공격 : ${statValue.conVal}`;
+            int.textContent = `특수방어 : ${statValue.intVal}`;
+            rux.textContent = `스피드 : ${statValue.ruxVal}`;
+        };
+    </script>
+</body>
+
+</html>

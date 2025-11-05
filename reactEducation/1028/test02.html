@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학생 성적 분석</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <h1>학생 성적 분석</h1>
+    <div class="data-container" id="dataDisplay">
+    </div>
+    <button onclick="analyzeScores()">성적 분석하기</button>
+    <p id="result"></p>
+
+    <script>
+        // 2차원 배열 (이름, 수학 점수, 영어 점수)
+        const students = [
+            ["김영희", 85, 90],
+            ["이철수", 42, 55],
+            ["박민수", 77, 80],
+            ["장하나", 95, 98],
+            ["손지훈", 60, 70],
+            ["최진영", 55, 45],
+            ["홍길동", 90, 88],
+            ["유미란", 33, 40],
+            ["정대웅", 70, 75],
+            ["강태우", 82, 79]
+        ];
+
+        let displayText = "<strong>학생 성적 목록: </strong> <br>"
+        document.querySelector("#dataDisplay").innerHTML = displayText;
+        for (let i = 0; i < students.length; i++) {
+            displayText += `${students[i][0]} - 수학: ${students[i][1]} / 영어: ${students[i][2]} <br> `;
+        }
+
+        document.querySelector("#dataDisplay").innerHTML = displayText;
+
+        function analyzeScores() {
+            let resultText = `<strong>성적 분석 결과 </strong> <br>`;
+            for (let i = 0; i < students.length; i++) {
+                let name = students[i][0];
+                let math = students[i][1];
+                let eng = students[i][2];
+                let avg = (students[i][1] + students[i][2]) / 2;
+                let pass = avg >= 60 ? '합격' : '불합격';
+                resultText += `${name}: 평균 ${avg}점 / 합격여부: ${pass} <br>`;
+            }
+
+            const resultElement = document.querySelector("#result");
+            resultElement.innerHTML = resultText;
+
+            setTimeout(() => {
+                resultElement.innerHTML = "";
+            }, 3000);
+        }
+
+    </script>
+</body>
+
+</html>

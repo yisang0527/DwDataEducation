@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>JavaScript Loops</h1>
+    <h2>The for Loop</h2>
+
+    <p id="demo"></p>
+
+    <script>
+        // 정수 숫자(1~10) 5개를 임의로 생성하여 모두 출력하고 그 숫자들의 합을 구하시오.
+        // ex) 2,4,6,7,8 합은 27
+        let sum = 0;
+        for (let i = 0; i < 5; i++) {
+            let num = Math.floor(Math.random() * 10) + 1;
+            sum += num;
+            document.getElementById("demo").innerHTML += num + " ";
+        }
+
+        let out = document.getElementById("demo");
+        document.getElementById("demo").innerHTML = "<br>" + out.innerHTML + "<br>" + "합은: " + sum;
+
+    </script>
+
+</body>
+
+</html>

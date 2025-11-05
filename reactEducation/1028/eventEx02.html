@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            padding: 30px;
+            border: 2px solid #666;
+            margin: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        #outer {
+            background-color: #e7a5a5;
+        }
+
+        #middle {
+            background-color: #073af2;
+        }
+
+        #inner {
+            background-color: #5c1010;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer">
+        Outer (최상위)
+        <div id="middle">
+            Middle (중간)
+            <div id="inner">
+                Inner (클릭 대상)
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    const outer = document.querySelector("#outer");
+    const middle = document.querySelector("#middle");
+    const inner = document.querySelector("#inner");
+
+    // 이벤트 등록
+    outer.addEventListener('click', () => {
+        console.log('클릭 이벤트: Outer ** 최상위')
+    });
+
+    middle.addEventListener('click', () => {
+        console.log('클릭 이벤트: Middle ** 중간')
+    });
+
+    inner.addEventListener('click', () => {
+        console.log('클릭 이벤트: Inner ** 실제 클릭 대상')
+    });
+</script>
+
+</html>

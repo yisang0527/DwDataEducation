@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bmi</title>
+    <link rel="stylesheet" href="./bmi.css">
+
+</head>
+
+<body>
+    <div id="wrap">
+        <div class="input-field">
+            <label for="height">신장</label>
+            <input type="number" name="height" id="height">
+        </div>
+
+        <div class="input-field">
+            <label for="weight">체중</label>
+            <input type="number" name="weight" id="weight">
+        </div>
+
+        <button id="calc">계산하기</button>
+
+        <div id="print"></div>
+    </div>
+
+    <script>
+        const saveBtn = document.querySelector("#calc");
+
+        saveBtn.onclick = () => {
+            let height = document.querySelector("#height").value;
+            let weight = document.querySelector("#weight").value;
+
+            let bmi = 0;
+            bmi = weight / ((height / 100) * (height / 100));
+
+            let printDiv = document.querySelector("#print");
+            let resultText = "";
+
+            if (bmi < 18.5) {
+                resultText = "저체중입니다.";
+            } else if (bmi >= 18.5 && bmi < 25) {
+                resultText = "정상체중입니다."
+            } else {
+                resultText = "과체중입니다."
+            }
+
+            printDiv.innerHTML = `당신의 bmi는 "${bmi}"이므로 "${resultText}"`;
+        };
+    </script>
+</body>
+
+</html>

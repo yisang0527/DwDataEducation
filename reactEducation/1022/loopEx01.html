@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>JavaScript Loops</h1>
+    <h2>The for Loop</h2>
+
+    <p id="demo"></p>
+
+    <script>
+        let text = "";
+
+        for (let i = 0; i < 5; i++) {
+            text += "The number is " + (i + 1) + "<br>";
+        }
+
+        // i 변수를 사용하지 않고 1~5 까지 출력하시오
+        // 단, 변수를 추가로 사용하여 해결
+        let count = 0;
+        for (let i = 0; i < 5; i++) {
+            text += "The number is " + (count++) + "<br>";
+        }
+
+        document.getElementById("demo").innerHTML = text;
+    </script>
+
+</body>
+
+</html>

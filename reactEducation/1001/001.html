@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>001</title>
+    <script>
+        // let height = 177, weight = 70;
+        // let hh = height * height;
+        // console.log(weight / hh);
+
+        //height 키, weight 몸무게
+        let h = 1.73, w = 65.9;
+        let BMI = w / (h * h);
+        console.log(`BMI 값 : ${BMI}`);
+
+        // let num1 = "10", num2 = "20";
+        // console.log(num1 + num2);
+        // console.log(Number(num1) + Number(num2));
+
+        // 4번 문제
+        let num1 = "10", num2 = "20"
+        console.log(num1 + num2);
+        // 문자열 상태에서는 더하기 연산이 아니라 합치기
+        // 그래서 문자열을 더하기 연산이 가능한 숫자로 변환을 해야한다.
+        // 문자열 -> 숫자 변환 ( Number(), parseInt(), parseFloat() )
+        console.log(Number(num1) + parseInt(num2));
+
+        // 조건 연산자
+        // 놀이동산에 놀러가서 바이킹을 타는데, 키가 140 이상만 탈 수 있다.
+        let tall = 177;
+        const result = tall >= 140 ? "드가자~" : "나가라~";
+        console.log(result);
+
+        // 동전 앞면 뒷면
+        // 1이면 앞면, 2는 뒷면
+        let coin = 1;
+        let res = (coin === 1) ? "앞면" : "뒷면";
+        console.log(res);
+
+        // 2번 문제
+        let item1 = 12000, item2 = 3500, item3 = 8000;
+        let total = item1 + item2 + item3;
+
+        res = (total >= 20000) ? "무료" : "3000원";
+        console.log(`배송비는 ${res} 입니다.`);
+
+        // 3번 문제
+        let num = parseInt(Math.random() * 10 + 1);
+        console.log(num);
+
+        res = (num % 2) === 1 ? "홀수" : "짝수";
+        console.log(`${num}라는 숫자는 ${res}이다.`);
+
+        // 문자열 함수
+        let word = "참외 좋아합니더, 와예?";
+        // 백틱(템플릿 문자열);
+        console.log(`넌 어떤 과일을 좋아하니? / ${word} `);
+
+        // 문자열 길이
+        console.log(word.length);
+
+        // 문자열의 특정 문자 출력
+        console.log(word[0]);
+        console.log(word.charAt(12));
+
+        // 문자열 거꾸로
+        console.log(word.split(" "));
+        console.log(word.split("").reverse().join(""));
+
+        // 5번 문제
+        let fullName = "이재영";
+
+        console.log(`"안녕하세요, 저는 ${fullName}입니다.\n이름의 길이는 ${fullName.length}입니다.\n성은 ${fullName[0]}입니다.\n${fullName.split("").reverse().join("")}"`)
+
+        console.log(`안녕하세요, 저는 ${fullName}입니다.`);
+        document.write(`안녕하세요, 저는 <b>${fullName}</b>입니다.`);
+
+        console.log(`이름의 길이는 ${fullName.length}입니다.`);
+        document.writeln(`이름의 길이는 <b style="color:red;">${fullName.length}</b>입니다.`);
+
+        console.log(`성은 ${fullName[0]}입니다.`);
+        document.writeln(`성은 ${fullName[0]}입니다.`);
+
+        console.log(`${fullName.split("").reverse().join("")}`);
+        document.write(`${fullName.split("").reverse().join("")}`);
+
+        // 3과목 성적구하기 (총점, 평균)
+        // 홍길동 학생의 성적 구하기
+        let kor = 45, mat = 68, eng = 92, his = 77, sci = 99;
+        let sum = kor + mat + eng + his + sci;
+
+        // 이순신 학생의 성적 구하기
+        kor = 65, mat = 44, eng = 88;
+        sum = kor + mat + eng;
+
+        // 박문수 학생의 성적 구하기
+        kor = 65, mat = 66, eng = 11;
+        sum = kor + mat + eng;
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

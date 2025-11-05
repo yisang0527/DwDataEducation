@@ -5,9 +5,11 @@ export default function Contact() {
 
     return (
         <>
+            <div id="wrap">
+                <input type="text" onChange={(e) => setName(e.target.value)} />
 
-            <input type="text" value={ } onChange={ } />
-
+                <p>君の名前わ... {name}</p>
+            </div>
         </>
     );
 }

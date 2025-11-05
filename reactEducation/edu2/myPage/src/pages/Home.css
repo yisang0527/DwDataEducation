@@ -45,3 +45,29 @@ img {
     top: 0;
     right: 0;
 }
+
+#card {
+    border: 1px solid #333;
+    width: 500px;
+    height: 100px;
+    margin: 10px auto;
+    padding: 25px;
+    text-align: center;
+}
+
+#like {
+    border: 1px solid #333;
+    width: 500px;
+    height: 140px;
+    margin: 10px auto;
+    padding: 25px;
+    text-align: center;
+}
+
+#like h1 {
+    margin-bottom: 20px;
+}
+
+#like button {
+    margin: 5px;
+}

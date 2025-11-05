@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학생 성적 분석</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .data-container {
+            margin: 20px;
+            padding: 10px;
+            background-color: #f4f4f4;
+            display: inline-block;
+        }
+
+        button {
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <h1>학생 성적 분석</h1>
+
+        <!-- 성적 분석 버튼 -->
+        <button onclick="analyzeScores()">성적 분석하기</button>
+    </div>
+
+    <!-- 학생 목록 -->
+    <div class="data-container" id="dataDisplay"></div>
+
+    <!-- 출력 area -->
+    <p id="result"></p>
+
+    <script>
+        // 2차원 배열 (이름, 수학 점수, 영어 점수)
+        const students = [
+            ["김영희", 85, 90], ["이철수", 42, 55], ["박민수", 77, 80], ["장하나", 95, 98], ["손지훈", 60, 70],
+            ["최진영", 55, 45], ["홍길동", 90, 88], ["유미란", 33, 40], ["정대웅", 70, 75], ["강태우", 82, 79]
+        ];
+
+        document.addEventListener("DOMContentLoaded", function () {
+            displayStudents();
+        });
+
+        // students 배열을 받아 화면에 한 줄씩 출력하는 함수
+        function displayStudents() {
+            const container = document.getElementById("dataDisplay");
+
+            // 기존 내용 초기화
+            container.innerHTML = "";
+
+            // 배열을 순회하며 <p> 요소를 만들어 추가
+            students.forEach(function (student) {
+                const name = student[0];
+                const math = student[1];
+                const eng = student[2];
+
+                // 한 학생의 표시 문자열 생성
+                const text = `${name} - 수학: ${math}점, 영어: ${eng}점`
+
+                // p 요소 생성 후 내용 할당
+                const p = document.createElement("p");
+                p.className = "student-line";
+                p.textContent = text;
+
+                // container에 추가
+                container.appendChild(p);
+            });
+        }
+
+        // 성적 분석 함수
+        function analyzeScores() {
+            let resultText = "<strong>성적 분석 결과:</strong><br>";
+
+            students.forEach(student => {
+                const [name, math, english] = student;
+                const avg = (math + english) / 2;
+                const passOrFail = avg >= 60 ? "합격" : "불합격";
+
+                // toFixed(1) → 평균을 소수점 1자리까지만 표시
+                resultText += `${name}: 평균 ${avg.toFixed(1)}점 → ${passOrFail}<br>`;
+            });
+
+            // 결과를 HTML에 표시
+            document.getElementById("result").innerHTML = resultText;
+        }
+    </script>
+</body>
+
+</html>

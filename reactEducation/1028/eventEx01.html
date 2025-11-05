@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+    <style>
+    </style>
+</head>
+
+<body>
+    <p id="demo"></p>
+
+    <script>
+        const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        const testEmail1 = "test@example.com";
+        const testEmail2 = "invalid-email";
+
+        console.log(emailRegex.test(testEmail1)); // true
+        console.log(emailRegex.test(testEmail2)); // false
+
+        /*
+         * ^: 문자열 시작
+         * [a-zA-Z0-9._%+-]+: 영문자, 숫자, 그리고 ._%+- 문자가 1번 이상 반복
+         * @: '@' 문자
+         * [a-zA-Z0-9.-]+: 도메인 이름
+         * \.: '.' 문자
+         * [a-zA-Z]{2,}: 최상위 도메인 (2글자 이상)
+         * $: 문자열 끝
+         */
+
+
+        // 최소 8자, 대문자, 소문자, 숫자, 특수문자를 각각 하나 이상 포함
+        const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+
+        const strongPassword = "Password123!";
+        const weakPassword = "password";
+
+        console.log(passwordRegex.test(strongPassword)); // true
+        console.log(passwordRegex.test(weakPassword)); // false
+
+        /*
+         * (?=.*[a-z]): 소문자가 최소 1개 있는지 확인 (전방 탐색)
+         * (?=.*[A-Z]): 대문자가 최소 1개 있는지 확인
+         * (?=.*\d): 숫자가 최소 1개 있는지 확인
+         * (?=.*[@$!%*?&]): 특수문자가 최소 1개 있는지 확인
+         * [A-Za-z\d@$!%*?&]{8,}: 허용된 문자들로 8자 이상
+         */
+
+
+        const mixedString = "AB12CD345EFG6";
+        const numbersOnlyRegex = /\d+/g; // 'g' 플래그는 전역 검색
+
+        const numbers = mixedString.match(numbersOnlyRegex);
+
+        console.log(numbers); // ["12", "345", "6"]
+        console.log(numbers.join("")); // "123456"
+
+        /*
+         * \d: 숫자를 의미 (0-9)
+         * +: 1번 이상 반복
+         * g: 문자열 전체에서 일치하는 모든 부분을 찾음
+         */
+
+
+        const htmlString = "<p>안녕하세요! <strong>중요한</strong> 내용입니다.</p>";
+        const stripHtmlRegex = /<[^>]*>/g;
+
+        const plainText = htmlString.replace(stripHtmlRegex, "");
+
+        console.log(plainText); // "안녕하세요! 중요한 내용입니다."
+
+        /*
+         * <: '<' 문자
+         * [^>]*: '>'를 제외한 모든 문자가 0번 이상 반복
+         * >: '>' 문자
+         */
+
+
+        const urlRegex = /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/;
+
+        const validUrl = "https://www.google.com";
+        const invalidUrl = "google.com"; // 프로토콜이 없는 경우 등은 정책에 따라 조절 가능
+
+        console.log(urlRegex.test(validUrl)); // true
+        console.log(urlRegex.test(invalidUrl)); // false (이 정규식 기준)
+
+
+        const post = "오늘은 #JS #정규식 공부를 했어요. #JavaScript 너무 재미있네요!";
+        const hashtagRegex = /#[\w\uAC00-\uD7A3]+/g; // 영문, 숫자, _, 한글 포함
+
+        const hashtags = post.match(hashtagRegex);
+
+        console.log(hashtags); // ["#JS", "#정규식", "#JavaScript"]
+
+        /*
+         * #: '#' 문자
+         * [\w\uAC00-\uD7A3]+: 단어 문자(\w) 또는 한글(가-힣)이 1번 이상 반복
+         */
+
+
+        const number = 1234567890;
+        const addCommasRegex = /\B(?=(\d{3})+(?!\d))/g;
+
+        const formattedNumber = number.toString().replace(addCommasRegex, ",");
+
+        console.log(formattedNumber); // "1,234,567,890"
+
+        /*
+         * \B: 단어 경계가 아닌 곳
+         * (?=(\d{3})+(?!\d)): 3자리 숫자가 1번 이상 반복되고, 그 뒤에 숫자가 없는 위치를 찾음 (전방 탐색)
+         */
+
+
+        const sentence = "hello world! this is a test.";
+        const capitalizeRegex = /(^|\s)\S/g;
+
+        const capitalizedSentence = sentence.replace(capitalizeRegex, (match) => match.toUpperCase());
+
+        console.log(capitalizedSentence); // "Hello World! This Is A Test."
+
+        /*
+         * (^|\s): 문자열의 시작(^) 또는 공백(\s)
+         * \S: 공백이 아닌 문자 (즉, 단어의 첫 글자)
+         * replace의 두 번째 인자로 함수를 사용하여 찾은 문자를 대문자로 변환
+         */
+
+
+        const url = "https://example.com/search?q=javascript&page=2&sort=popular";
+        const queryStringRegex = /[?&]([^=#]+)=([^&#]*)/g;
+        const params = {};
+        let match;
+
+        while ((match = queryStringRegex.exec(url)) !== null) {
+            params[decodeURIComponent(match[1])] = decodeURIComponent(match[2]);
+        }
+
+        console.log(params); // { q: "javascript", page: "2", sort: "popular" }
+
+        /*
+         * [?&]: '?' 또는 '&'로 시작
+         * ([^=#]+): '=', '#'가 아닌 문자가 1번 이상 (key)
+         * =: '=' 문자
+         * ([^&#]*): '&', '#'가 아닌 문자가 0번 이상 (value)
+         */
+    </script>
+</body>
+
+</html>

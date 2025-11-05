@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+</head>
+
+<body>
+    <h1>회원 목록</h1>
+
+    <ul id="user-list"></ul>
+</body>
+<script>
+    // Fetch API로 할 일 목록 가져오기
+    fetch('https://jsonplaceholder.typicode.com/users')
+        .then((response) => {
+            if (!response.ok) {
+                throw new Error('네트워크 오류 발생');
+
+            }
+            return response.json();
+        })
+        
+        .then(users => {
+            const userList = document.getElementById("user-list");
+
+            users.forEach((user) => {
+                const li = document.createElement("li");
+                li.textContent = `${user.name}(${user.email})`;
+                userList.appendChild(li);
+            });
+        })
+
+        .catch((error) => {
+            console.log(`데이터를 불러오는 중 오류 발생:`, error);
+        });
+</script>
+
+</html>

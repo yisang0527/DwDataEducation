@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>001</title>
+    <script>
+        function game() {
+            document.write("========가위 바위 보를 시작합니다========<br>")
+            let user = parseInt(Math.random() * 3) + 1;
+            let com = parseInt(Math.random() * 3) + 1;
+
+            let u = check(user);
+            let c = check(com);
+
+            let r = result(user, com);
+
+            let out = `
+                <div class="userBox">
+                    <div class="val">${u}</div>
+                    <div class="player">유저</div>
+                </div>
+
+                <div class="res">${r}</div>
+
+                <div class="comBox">
+                    <div class="val">${c}</div>
+                    <div class="player">컴퓨터</div>
+                </div>
+            `;
+
+            document.write(`<div class="box">${out}</div>`);
+        }
+
+        function check(player) {
+            let word = player === 1 ? "가위" : player === 2 ? "바위" : "보";
+            return word;
+        }
+
+        function result(u, c) {
+            let res = "패";
+            if (u === c) {
+                res = "비김";
+            } else if ((u === 1 && c === 3) || (u === 2 && c === 1) || (u === 3 && c === 2)) {
+                res = "승";
+            }
+            return res;
+        }
+
+        game();
+    </script>
+
+    <style>
+        .box {
+            display: flex;
+            width: 500px;
+        }
+
+        .userBox,
+        .res,
+        .comBox {
+            flex: 1;
+        }
+
+        .userBox .val {
+            background: skyblue;
+        }
+
+        .comBox .val {
+            background: greenyellow;
+        }
+
+        .val {
+            border: 1px solid #aaa;
+            border-radius: 7px;
+            margin: 20px;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        .player {
+            text-align: center;
+        }
+
+        .res {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div>
+    <h2>학생</h2>
+    <label for="studentCard">카드</label>
+    <input type="text" id="studentCard" />
+    <label for="studentCash">현금</label>
+    <input type="text" id="studentCash" />
+  </div>
+  <div>
+    <h2>성인</h2>
+    <label for="adultCard">카드</label>
+    <input type="text" id="adultCard" />
+    <label for="adultCash">현금</label>
+    <input type="text" id="adultCash" />
+  </div>
+  <div>
+    <h2>노약자</h2>
+    <label for="elderCard">카드</label>
+    <input type="text" id="elderCard" />
+    <label for="elderCash">현금</label>
+    <input type="text" id="elderCash" />
+  </div>
+  <button>인원수를 입력후 버튼을 눌러 요금을 계산하세요</button>
+  <div>
+    <h3 id="studentText"></h3>
+    <h3 id="adultText"></h3>
+    <h3 id="elderText"></h3>
+    <h2 id="resultText"></h2>
+  </div>
+  <script>
+    let $studentCard = document.querySelector("#studentCard");
+    let $studentCash = document.querySelector("#studentCash");
+    let $adultCard = document.querySelector("#adultCard");
+    let $adultCash = document.querySelector("#adultCash");
+    let $elderCard = document.querySelector("#elderCard");
+    let $elderCash = document.querySelector("#elderCash");
+    let student, adult, alder, studentCard, studentCash, adultCard, adultCash, elderCard, elderCash, totalPrice = 0;
+
+    let $btn = document.querySelector("button");
+
+    let $studentText = document.querySelector("#studentText");
+    let $adultText = document.querySelector("#adultText");
+    let $elderText = document.querySelector("#elderText");
+    let $resultText = document.querySelector("#resultText");
+
+    $btn.addEventListener("click", function () {
+      studentCard = $studentCard.value;
+      studentCash = $studentCash.value;
+      adultCard = $adultCard.value;
+      adultCash = $adultCash.value;
+      elderCard = $elderCard.value;
+      elderCash = $elderCash.value;
+      student = studentCard * 750 + studentCash * 900;
+      adult = adultCard * 1500 + adultCash * 1700;
+      elder = elderCard * 1200 + elderCash * 1700;
+      totalPrice = student + adult + elder;
+
+      $studentText.textContent = `학생: 카드 ${studentCard}명, 현금 ${studentCash}명`;
+      $adultText.textContent = `성인: 카드 ${adultCard}명, 현금 ${adultCash}명`;
+      $elderText.textContent = `노약자: 카드 ${elderCard}명, 현금 ${elderCash}명`;
+
+      $resultText.textContent = `총 금액은 ${totalPrice}원 입니다`;
+    });
+  </script>
+</body>
+
+</html>

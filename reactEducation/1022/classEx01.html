@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1>JavaScript Classes</h1>
+    <p>Creating two car objects from a car class:</p>
+
+    <p id="demo"></p>
+    <p id="demo1"></p>
+
+    <script>
+        class Car {
+            constructor(brand) {
+                this.carname = brand;
+            }
+
+            present() {
+                return 'i have a ' + this.carname
+            }
+        }
+
+        class Model extends Car {
+            constructor(brand, model) {
+                super(brand);
+                this.model = model;
+            }
+            show() {
+                return this.present() + ', it is a ' + this.model;
+            }
+        }
+
+        const myCar3 = new Model("KIA", "K7");
+        const myCar4 = new Car("KIA");
+
+        document.getElementById("demo").innerHTML = myCar3.show();
+        document.getElementById("demo1").innerHTML = myCar4.present() + " 이고 " + myCar4.carname;
+    </script>
+
+</body>
+
+</html>

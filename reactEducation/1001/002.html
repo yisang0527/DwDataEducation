@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>002</title>
+    <script>
+        // 함수
+        function sum(a, b) {
+            document.write(`정답은 ${a + b}입니다 <br>`);
+        }
+
+        // sum(10, 20); // 함수 호출 - 실행
+        // sum(44, 66);
+        // sum(219347923, 142934190);
+
+        // 두 정수의 곱하기 결과를 출력하는 함수를 만들어서 실행 해보세요.
+        function mul(num1, num2) {
+            document.write(`정답은 ${num1 * num2}입니다 <br>`);
+        }
+
+        // mul(2, 5);
+        // mul(12, 16);
+        // mul(123123123, 123412341234);
+
+        function calc() {
+            // document.write("잘되고있다.");
+            //$("#num1").val()
+            let num1 = document.getElementById("num1").value;
+            let num2 = document.getElementById("num2").value;
+            console.log(`${num1} , ${num2}`);
+
+            let res = Number(num1) + parseInt(num2);
+
+            document.getElementById("result").innerText = res;
+        }
+
+        // 함수 표현식
+        // const mul2 = function (a, b) {
+        //     document.write(a * b);
+        // }
+        // 화살표 함수
+        const mul2 = (a, b) => { document.write(a * b); }
+
+        mul2(10, 2);
+
+        // 전역변수
+        let name = "척준경";
+        let age = 27;
+        let birth = 990527;
+        console.log(age);
+
+        // 지역변수
+        function temp() {
+            let age = 10;
+            let name = "이성계";
+
+            console.log(`함수 내부 age : ${age} ${birth}`);
+        }
+
+        temp();
+        console.log(age);
+        console.log(name);
+    </script>
+</head>
+
+<body>
+    <button type="button" onclick="sum(60, 80)"> 더하기 </button> <br>
+    <button type="button" onclick="mul(4, 8)"> 곱하기 </button>
+    <div>
+        <a href="javascript:calc();">더하기 계산</a>
+        <input type="number" id="num1">
+        <input type="number" id="num2">
+    </div>
+    <div id="result"></div>
+</body>
+
+</html>

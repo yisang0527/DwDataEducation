@@ -2,7 +2,7 @@
 
 1.useState로 장바구니 배열(cart) 상태 관리
 2. /add에서 상품병, 가격 입력 후 담기 > cart에 누적
-3. /cart에서 담긴 상품 목록 출력 + 총합 표시
+3. /cart에서 담긴 상품 목록 출력 + 총합 표시 (총 몇개, 총 얼마)
 4. ProductForm(입력) / CartList(출력) 컴포넌트로 분리
 5. Buyer이 최상단 상태 보관, 자식에 props로 값/함수 전달
 6. Router로 /add(입력), /cart(목록) 구성, 상단 Link 네비 제공

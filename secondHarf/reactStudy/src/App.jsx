@@ -10,6 +10,8 @@ import Schedule from './Component/study2/Schedule'
 import Student from './Component/study2/Student'
 import Memo from './Component/study2/Memo'
 import BoardMng from './Component/study2/BoardMng'
+import Buyer from './Component/study3/Buyer'
+import TestEffect from './Component/study3/TestEffect'
 
 function App() {
   return (
@@ -23,7 +25,9 @@ function App() {
         <Route path='/schedule' element={<Schedule />} />
         <Route path='/studentname' element={<Student />} />
         <Route path='/simplememo' element={<Memo />} />
-        <Route path='/boardMng/*' element={<BoardMng />} />
+        <Route path='/boardMng' element={<BoardMng />} />
+        <Route path='/productBuy/*' element={<Buyer />} />
+        <Route path='/effect1' element={<TestEffect />} />
       </Routes>
     </Router>
   )

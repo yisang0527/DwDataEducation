@@ -7,14 +7,22 @@ export default function TestFetch() {
         () => {
             fetch("https://jsonplaceholder.typicode.com/users")
                 .then((response) => response.json())
-                .then((data) => setUsers);
+                .then((data) => setUsers(data));
 
         }, []
     )
 
     return (
         <>
-
+            <h2>데이터 출력</h2>
+            <ul>
+                {
+                    users.map((u) => {
+                        return <li>{u.name}: {u.email}</li>
+                    }
+                    )
+                }
+            </ul>
         </>
     );
 }

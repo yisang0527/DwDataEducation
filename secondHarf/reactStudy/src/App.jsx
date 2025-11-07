@@ -12,6 +12,7 @@ import Memo from './Component/study2/Memo'
 import BoardMng from './Component/study2/BoardMng'
 import Buyer from './Component/study3/Buyer'
 import TestEffect from './Component/study3/TestEffect'
+import TestFetch from './Component/study3/TestFetch'
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
         <Route path='/boardMng' element={<BoardMng />} />
         <Route path='/productBuy/*' element={<Buyer />} />
         <Route path='/effect1' element={<TestEffect />} />
+        <Route path='/fetch' element={<TestFetch />} />
       </Routes>
     </Router>
   )

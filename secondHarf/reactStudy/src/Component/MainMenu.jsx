@@ -16,6 +16,7 @@ export default function MainMenu() {
             <Link to="/boardMng" className='menu'>게시판정보</Link>
             <Link to="/productBuy/*" className='menu'>장바구니</Link>
             <Link to="/effect1" className='menu'>Effect 살펴보기</Link>
+            <Link to="/fetch" className='menu'>Fetch 살펴보기</Link>
         </div>
     );
 }

@@ -17,6 +17,7 @@ import DataList from './Component/study4/DataList'
 import DataList2 from './Component/study4/DataList2'
 import UserInfo from './Component/study4/UserInfo'
 import TodoList from './Component/study4/TodoList'
+import Attend from './Component/study4/Attend'
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
         <Route path='/map1' element={<DataList />} />
         <Route path='/map2' element={<DataList2 />} />
         <Route path='/todo' element={<TodoList />} />
+        <Route path='/attend' element={<Attend />} />
       </Routes>
     </Router>
   )

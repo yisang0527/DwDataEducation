@@ -21,6 +21,7 @@ export default function MainMenu() {
             <Link to="/map2" className='menu'>map 출력2</Link>
             <Link to="/users" className='menu'>유저들</Link>
             <Link to="/todo" className='menu'>TodoList</Link>
+            <Link to="/attend" className='menu'>출석부</Link>
         </div>
     );
 }

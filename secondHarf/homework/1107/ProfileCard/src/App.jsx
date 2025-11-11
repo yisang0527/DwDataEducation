@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
 import ProfileCard from './ProfileCard'
 
-function App() {
+export default function App() {
   return (
     <>
       <Router>
@@ -13,5 +13,3 @@ function App() {
     </>
   )
 }
-
-export default App
